@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth"> <head>
+<html lang="en" class="scroll-smooth">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayank Jha | Senior SDET Portfolio</title>
@@ -33,11 +34,14 @@
 
         .copy-feedback { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #3b82f6; color: white; padding: 8px 16px; border-radius: 8px; display: none; z-index: 100; font-size: 14px; }
         
-        /* Cropping image from right side by adjusting object-position */
         .cropped-photo {
             object-fit: cover;
-            object-position: 20% center; /* This shifts the view to the left, effectively cropping the right */
+            object-position: 20% center;
         }
+
+        /* Mobile Menu Animation */
+        #mobileMenu { transition: all 0.3s ease-in-out; pointer-events: none; opacity: 0; transform: translateY(-10px); }
+        #mobileMenu.active { pointer-events: auto; opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body class="selection:bg-blue-500/30">
@@ -47,23 +51,36 @@
     <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 py-4 md:py-5">
         <div class="container mx-auto px-6 md:px-10 flex justify-between items-center">
             <a href="#" class="text-lg md:text-xl font-bold tracking-tighter uppercase whitespace-nowrap">
-                Mayank<span class="text-blue-500">.</span> Jha Portfolio
+                Mayank<span class="text-blue-500"></span> Jha Portfolio
             </a>
             
-            <div class="lg:hidden">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </div>
+            <button onclick="toggleMenu()" class="lg:hidden p-2 text-gray-400 hover:text-white z-50">
+                <i data-lucide="menu" id="menuIcon"></i>
+            </button>
 
             <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-gray-400">
                 <a href="#projects" class="hover:text-white transition">Projects</a>
                 <a href="#skills" class="hover:text-white transition">Tools</a>
                 <a href="#experience" class="hover:text-white transition">Experience</a>
                 <a href="#certifications" class="hover:text-white transition">Salesforce</a>
+                <a href="#education" class="hover:text-white transition">Education</a>
                 <a href="https://www.youtube.com/@Mayank_Jha_" target="_blank" class="hover:text-white transition">YouTube</a>
                 <a href="https://www.linkedin.com/in/mayank-jha-0b0969184/" target="_blank" class="px-6 py-2 bg-white text-black font-bold rounded-full hover:bg-blue-400 transition">LinkedIn</a>
             </div>
         </div>
     </nav>
+
+    <div id="mobileMenu" class="fixed top-0 left-0 w-full h-fit bg-[#050505] z-40 border-b border-white/10 pt-24 pb-10 px-10 lg:hidden glass">
+        <div class="flex flex-col space-y-6 text-center text-xl font-medium text-gray-400">
+            <a href="#projects" onclick="toggleMenu()" class="hover:text-white transition">Projects</a>
+            <a href="#skills" onclick="toggleMenu()" class="hover:text-white transition">Tools</a>
+            <a href="#experience" onclick="toggleMenu()" class="hover:text-white transition">Experience</a>
+            <a href="#certifications" onclick="toggleMenu()" class="hover:text-white transition">Salesforce</a>
+            <a href="#education" onclick="toggleMenu()" class="hover:text-white transition">Education</a>
+            <a href="https://www.youtube.com/@Mayank_Jha_" target="_blank" class="hover:text-white transition">YouTube</a>
+            <a href="https://www.linkedin.com/in/mayank-jha-0b0969184/" target="_blank" class="text-blue-400 font-bold pt-4">LinkedIn</a>
+        </div>
+    </div>
 
     <section class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden text-left">
         <div class="absolute inset-0 hero-glow z-0"></div>
@@ -71,16 +88,16 @@
             
             <div class="lg:col-span-7 order-2 lg:order-1">
                 <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-medium mb-6 md:mb-10 uppercase tracking-widest">
-                    Senior SDET @ CloudPrism Solutions 
+                    Senior SDET @ CloudPrism Solutions
                 </div>
                 <h1 class="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-6 md:mb-8 lg:whitespace-nowrap">
-                    Mayank Jha<span class="text-gray-500">.</span>
+                    Mayank Jha<span class="text-gray-500"></span>
                 </h1>
                 <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-blue-400 tracking-widest uppercase mb-8 md:mb-10 leading-tight">
-                    Leading Quality for Dot Compliance (Client: Ceptes)
+                    Leading Quality for Dot Compliance (Client: Ceptes) 
                 </h2>
                 <p class="text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mb-10 md:mb-14 leading-relaxed">
-                    Senior SDET with 4.5 years of experience in software quality processes. Expertise in end-to-end testing of Salesforce Clouds and robust automation ecosystems.
+                    Senior SDET with 4.5 years of experience in software quality processes. Expertise in end-to-end testing of Salesforce Clouds and robust automation ecosystemsxs.
                 </p>
                 <div class="flex flex-wrap items-center gap-4 md:gap-6">
                     <button onclick="copyToClipboard('+919155053147')" class="hero-btn group text-sm md:text-base">
@@ -112,12 +129,12 @@
     </section>
 
     <section id="skills" class="py-20 md:py-32 container mx-auto px-6 md:px-10">
-        <h2 class="text-3xl md:text-4xl font-bold mb-16 md:mb-20 text-center uppercase tracking-tighter italic">Technical Stack</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 md:mb-20 text-center uppercase tracking-tighter italic">Technical Stack (Tools)</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-left text-sm">
             <div class="glass p-6 md:p-8 rounded-3xl border-blue-500/20 md:col-span-2 card-hover">
                 <h3 class="text-lg md:text-xl font-bold mb-6 text-blue-400 flex items-center gap-2"><i data-lucide="terminal"></i> Automation Frameworks</h3>
                 <div class="flex flex-wrap gap-2 md:gap-3">
-                    <span class="bg-white/5 px-3 md:px-4 py-2 rounded-lg border border-white/10">Selenium with Java </span>
+                    <span class="bg-white/5 px-3 md:px-4 py-2 rounded-lg border border-white/10">Selenium with Java</span>
                     <span class="bg-white/5 px-3 md:px-4 py-2 rounded-lg border border-white/10">TestNG & JUnit </span>
                     <span class="bg-white/5 px-3 md:px-4 py-2 rounded-lg border border-white/10">Maven </span>
                     <span class="bg-white/5 px-3 md:px-4 py-2 rounded-lg border border-white/10">Allure Report </span>
@@ -143,7 +160,9 @@
                     <p>• Postman & JMeter </p>
                 </div>
             </div>
-            <div class="glass p-6 md:p-8 rounded-3xl border-blue-500/20 md:col-span-2 card-hover">
+
+            <!-- Salesforce Section -->
+             <div class="glass p-6 md:p-8 rounded-3xl border-blue-500/20 md:col-span-2 card-hover">
                 <h3 class="text-lg md:text-xl font-bold mb-6 text-blue-300">Salesforce Ecosystem</h3>
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div class="flex flex-wrap gap-2">
@@ -155,17 +174,17 @@
                         <p class="text-xs text-gray-500 uppercase font-bold">PD1 & Admin Certified</p>
                     </div>
                 </div>
-            </div>
+
         </div>
     </section>
 
     <section id="projects" class="py-20 md:py-32 bg-[#080808]">
         <div class="container mx-auto px-6 md:px-10">
             <h2 class="text-3xl md:text-4xl font-bold mb-16 md:mb-20 text-center uppercase tracking-tighter italic text-blue-400 underline underline-offset-8">
-    <a href="https://github.com/Mayankjha1" target="_blank" class="hover:text-white transition-colors duration-300">
-        Impact Portfolio (Automation ~ Github)
-    </a>
-</h2>
+                <a href="https://github.com/Mayankjha1" target="_blank" class="hover:text-white transition-colors duration-300">
+                    Impact Portfolio (Automation ~ Github)
+                </a>
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <div class="glass p-8 md:p-10 rounded-3xl border-blue-500/20 card-hover">
                     <h3 class="text-xl md:text-2xl font-bold mb-4">Dot Compliance (Ceptes)</h3>
@@ -201,7 +220,7 @@
             <div class="relative pl-8 border-l-2 border-blue-500">
                 <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
                 <span class="text-blue-400 font-bold text-sm uppercase">2023 — PRESENT</span>
-                <h3 class="text-xl md:text-2xl font-bold mt-1">Senior SDET @ CloudPrism Solutions</h3>
+                <h3 class="text-xl md:text-2xl font-bold mt-1 text-white">Senior SDET @ CloudPrism Solutions </h3>
                 <p class="text-gray-400 font-medium italic mt-1 text-sm md:text-base">Project: Dot Compliance (Client: Ceptes)</p>
                 <ul class="mt-4 space-y-3 text-gray-400 text-sm md:text-base">
                     <li>• Leading automation for Dot Compliance, ensuring 99% seamless integration.</li>
@@ -212,7 +231,7 @@
             <div class="relative pl-8 border-l-2 border-white/10">
                 <div class="absolute w-4 h-4 bg-white/20 rounded-full -left-[9px] top-1"></div>
                 <span class="text-gray-500 font-bold text-sm uppercase">2021 — 2023</span>
-                <h3 class="text-xl md:text-2xl font-bold mt-1 text-gray-300">SDET @ CloudPrism Solutions</h3>
+                <h3 class="text-xl md:text-2xl font-bold mt-1 text-gray-300">SDET @ CloudPrism Solutions </h3>
                 <ul class="mt-4 space-y-3 text-gray-500 text-sm md:text-base">
                     <li>• Increased test coverage by 50% for agile projects.</li>
                     <li>• Managed requirement analysis for 3000+ test cases.</li>
@@ -225,11 +244,11 @@
         <h2 class="text-3xl md:text-4xl font-bold mb-16 md:mb-20 text-center uppercase tracking-tighter">Certifications</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <a href="https://www.salesforce.com/trailblazer/majha105" target="_blank" class="glass p-8 md:p-10 rounded-3xl border-blue-500/20 card-hover text-center">
-                <h3 class="text-xl md:text-2xl font-bold">Salesforce Administrator</h3>
+                <h3 class="text-xl md:text-2xl font-bold">Salesforce Administrator </h3>
                 <p class="text-blue-400 font-bold text-xs md:text-sm uppercase mt-2 italic tracking-widest">Sept 2022</p>
             </a>
             <a href="https://www.salesforce.com/trailblazer/majha105" target="_blank" class="glass p-8 md:p-10 rounded-3xl border-blue-500/20 card-hover text-center">
-                <h3 class="text-xl md:text-2xl font-bold">Platform Developer I</h3>
+                <h3 class="text-xl md:text-2xl font-bold">Platform Developer I </h3>
                 <p class="text-blue-400 font-bold text-xs md:text-sm uppercase mt-2 italic tracking-widest">Jan 2023</p>
             </a>
         </div>
@@ -241,7 +260,7 @@
             <a href="https://drive.google.com/file/d/11KM_47YUpQoTywjdxDB5JXCu3PFw0zqi/view" target="_blank" class="max-w-4xl mx-auto glass p-8 md:p-12 rounded-[2.5rem] border-white/5 edu-card block">
                 <div class="edu-overlay"></div>
                 <div class="relative z-10">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-2 uppercase">Amity University Patna</h3>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-2 uppercase">Amity University Patna </h3>
                     <p class="text-blue-400 font-bold uppercase tracking-widest text-xs md:text-sm mb-6">B.Tech - Computer Science and Engineering</p>
                     <p class="text-gray-400 text-sm md:text-base italic">Class of 2017 — 2021.</p>
                     <p class="mt-6 text-gray-500 text-sm font-bold uppercase">View Graduation Certificate</p>
@@ -256,6 +275,20 @@
 
     <script>
         lucide.createIcons();
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('active');
+            
+            if(menu.classList.contains('active')) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 const toast = document.getElementById('copyToast');
